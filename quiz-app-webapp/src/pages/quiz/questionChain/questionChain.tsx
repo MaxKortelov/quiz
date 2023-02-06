@@ -40,7 +40,7 @@ function QuestionChain() {
 
   return (
     <div className={classNames('d-flex w-100 h-100 flex-column align-items-center p-4')}>
-      <Pagination size="lg">{questionChain()}</Pagination>
+      <Pagination size="sm">{questionChain()}</Pagination>
       <div className={classNames('w-100 h-100 flex-center position-relative')}>
         <QuestionForm question={questions[currentQuestion]}
                       isLast={compareQuestionsId(findLastestQuestionId(questions), questions[currentQuestion].id)}
