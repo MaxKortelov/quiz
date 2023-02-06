@@ -24,7 +24,6 @@ router.get('/', async (req: ICustomRequest, res: Response) => {
 router.post('/check', async (req: ICustomRequest, res: Response) => {
   // No validation applied
   checkAnswers(req.query.type as QUIZ, req.body).then((answers) => {
-    console.log(answers)
     res.setHeader('Content-Type', 'application/json')
     res.setHeader('Access-Control-Allow-Credentials', 'true')
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import classNames from "classnames";
 import Form from 'react-bootstrap/Form';
 import {Button} from "react-bootstrap";
@@ -9,7 +9,7 @@ import {useNavigate} from "react-router-dom";
 
 function Login() {
   const {authenticate} = useActions();
-  const {authErrorMessage} = useAuthSelectors();
+  const {authErrorMessage, user} = useAuthSelectors();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: any) => {
@@ -21,8 +21,14 @@ function Login() {
     e.preventDefault();
     e.stopPropagation();
     authenticate(params);
-    navigate('/quiz');
   }
+
+  useEffect(() => {
+    if (user.id) {
+      navigate('/quiz');
+    }
+    //eslint-disable-next-line
+  }, [user.id])
 
   return (
     <div className={classNames('flex-center full-screen flex-column')}>
