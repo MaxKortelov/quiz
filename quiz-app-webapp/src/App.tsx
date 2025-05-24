@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     navigate('/login');
-    console.log('check')
+    
     //eslint-disable-next-line
   }, [])
 
